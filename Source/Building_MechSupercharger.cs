@@ -80,7 +80,7 @@ namespace MechSupercharger
                 Pawn chargingMech = CurrentlyChargingMech;
                 if (chargingMech == null)
                 {
-                    Log.Warning("Could not resolve a chanring mech");
+                    Log.Warning("Could not resolve a charging mech");
                     return;
                 }
                 chargingMech.needs.energy.CurLevel += 0.000833333354f * (SuperchargerComp.OverCharge - 1);
@@ -137,7 +137,7 @@ namespace MechSupercharger
         {
             Building_MechSupercharger supercharger = __instance as Building_MechSupercharger;
             if (supercharger == null) return;
-            supercharger.HasMechCharging = true;
+            supercharger.HasMechCharging = false;
         }
     }
 }
