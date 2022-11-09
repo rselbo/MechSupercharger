@@ -32,10 +32,9 @@
 		<label>mech supercharger</label>
 		<description>Lightweight mechanoids can recharge here. During recharge, this recharger produces toxic wastepacks and stores them internally. Haulers must remove the wastepacks from time to time.</description>
 		<graphicData>
-			<texPath>Things/Building/Production/BasicRecharger</texPath>
-			<color>0.8,0.6,1</color>
-			<graphicClass>Graphic_Multi</graphicClass>
-			<drawSize>(2.9,1.25)</drawSize>
+			<texPath>Things/Building/Production/BasicSupercharger</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(3,1)</drawSize>
 			<shadowData>
 				<volume>(2.9, 0.5, 0.9)</volume>
 			</shadowData>
@@ -55,20 +54,20 @@
 			</requiredMechWeightClasses>
 			<barDrawData>
 				<north>
-					<preRotationOffset>(-0.01598358,0.0255661)</preRotationOffset>
-					<size>(0.5505219,0.1139069)</size>
+					<preRotationOffset>(0.0,0.04)</preRotationOffset>
+					<size>(0.48,0.12)</size>
 				</north>
 				<south>
-					<preRotationOffset>(0.006927488,-0.02323151)</preRotationOffset>
-					<size>(0.5479813,0.1345978)</size>
+					<preRotationOffset>(0.0,0.04)</preRotationOffset>
+					<size>(0.48,0.12)</size>
 				</south>
 				<east>
-					<preRotationOffset>(0.1157379,-0.006530767)</preRotationOffset>
-					<size>(0.4481201,0.1160278)</size>
+					<preRotationOffset>(0.0,-0.04)</preRotationOffset>
+					<size>(0.48,0.12)</size>
 				</east>
 				<west>
-					<preRotationOffset>(-0.1114426,-0.005119322)</preRotationOffset>
-					<size>(0.4646759,0.1281815)</size>
+					<preRotationOffset>(0.0,-0.04)</preRotationOffset>
+					<size>(0.48,0.12)</size>
 				</west>
 			</barDrawData>
 		</building>
@@ -101,10 +100,9 @@
 		<label>large mech supercharger</label>
 		<description>Medium, heavy, and ultraheavy mechanoids can recharge here. During recharge, this recharger produces toxic wastepacks and stores them internally. Haulers must remove the wastepacks from time to time.</description>
 		<graphicData>
-			<texPath>Things/Building/Production/StandardRecharger</texPath>
-			<color>0.8,0.6,1</color>
-			<graphicClass>Graphic_Multi</graphicClass>
-			<drawSize>(3.8,2.8)</drawSize>
+			<texPath>Things/Building/Production/LargeSupercharger</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(3,2)</drawSize>
 			<shadowData>
 				<volume>(2.9, 0.5, 1.9)</volume>
 			</shadowData>
@@ -126,20 +124,20 @@
 			</requiredMechWeightClasses>
 			<barDrawData>
 				<north>
-					<preRotationOffset>(0.002166748,-0.3722534)</preRotationOffset>
-					<size>(0.4398041,0.1365509)</size>
+					<preRotationOffset>(-0.01,0.56)</preRotationOffset>
+					<size>(0.48,0.12)</size>
 				</north>
 				<south>
-					<preRotationOffset>(-0.002609305,-0.6002655)</preRotationOffset>
-					<size>(0.4398041,0.121376)</size>
+					<preRotationOffset>(-0.01,0.56)</preRotationOffset>
+					<size>(0.48,0.12)</size>
 				</south>
 				<east>
-					<preRotationOffset>(0.04148867,0.6301422)</preRotationOffset>
-					<size>(0.4066238,0.1425552)</size>
+					<preRotationOffset>(0.0,-0.56)</preRotationOffset>
+					<size>(0.48,0.12)</size>
 				</east>
 				<west>
-					<preRotationOffset>(-0.02767944,0.6171188)</preRotationOffset>
-					<size>(0.397522,0.1395264)</size>
+					<preRotationOffset>(0.0,-0.56)</preRotationOffset>
+					<size>(0.48,0.12)</size>
 				</west>
 			</barDrawData>
 		</building>
@@ -155,8 +153,6 @@
 			<li Class="CompProperties_ThingContainer">
 				<compClass>CompThingContainer</compClass>
 				<stackLimit>10</stackLimit>
-				<drawContainedThing>false</drawContainedThing>
-				<dropEffecterDef>MechChargerWasteRemoved</dropEffecterDef>
 			</li>
 			<li Class="CompProperties_Power">
 				<compClass>CompPowerTrader</compClass>
@@ -173,10 +169,9 @@
 		<label>advanced mech supercharger</label>
 		<description>Lightweight mechanoids can recharge here. During recharge, this recharger has an internal waste atomizer so it produces no waste.</description>
 		<graphicData>
-			<texPath>Things/Building/Production/BasicRecharger</texPath>
-			<color>0.6,0.4,1</color>
-			<graphicClass>Graphic_Multi</graphicClass>
-			<drawSize>(2.9,1.25)</drawSize>
+			<texPath>Things/Building/Production/BasicAdvancedSupercharger</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(3,1)</drawSize>
 			<shadowData>
 				<volume>(2.9, 0.5, 0.9)</volume>
 			</shadowData>
@@ -227,10 +222,9 @@
 		<label>large advanced mech supercharger</label>
 		<description>Medium, heavy, and ultraheavy mechanoids can recharge here. During recharge, this recharger has an internal waste atomizer so it produces no waste..</description>
 		<graphicData>
-			<texPath>Things/Building/Production/StandardRecharger</texPath>
-			<color>0.6,0.4,1</color>
-			<graphicClass>Graphic_Multi</graphicClass>
-			<drawSize>(3.8,2.8)</drawSize>
+			<texPath>Things/Building/Production/LargeAdvancedSupercharger</texPath>
+			<graphicClass>Graphic_Single</graphicClass>
+			<drawSize>(3,2)</drawSize>
 			<shadowData>
 				<volume>(2.9, 0.5, 1.9)</volume>
 			</shadowData>
@@ -250,24 +244,6 @@
 				<li>Heavy</li>
 				<li>UltraHeavy</li>
 			</requiredMechWeightClasses>
-			<barDrawData>
-				<north>
-					<preRotationOffset>(0.002166748,-0.3722534)</preRotationOffset>
-					<size>(0.4398041,0.1365509)</size>
-				</north>
-				<south>
-					<preRotationOffset>(-0.002609305,-0.6002655)</preRotationOffset>
-					<size>(0.4398041,0.121376)</size>
-				</south>
-				<east>
-					<preRotationOffset>(0.04148867,0.6301422)</preRotationOffset>
-					<size>(0.4066238,0.1425552)</size>
-				</east>
-				<west>
-					<preRotationOffset>(-0.02767944,0.6171188)</preRotationOffset>
-					<size>(0.397522,0.1395264)</size>
-				</west>
-			</barDrawData>
 		</building>
 		<constructionSkillPrerequisite>5</constructionSkillPrerequisite>
 		<costList>

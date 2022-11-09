@@ -10,11 +10,25 @@ using Verse;
 
 namespace MechSupercharger
 {
+    enum SuperchargerType
+    {
+        NormalSupercharger,
+        LargeSupercharger,
+        NormalAdvancedSupercharger,
+        LargeAdvancedSupercharger
+    }
+
     public class Building_MechSupercharger : Building_MechCharger
     {
         public int SuperchargeLevel = 1;
-        public float BasePowerDraw = 0;
+        public float IdlePowerDraw => GetIdlePowerDraw();
+        public float BasePowerDraw => GetBasePowerDraw();
+        public float ToxicEfficiency => GetToxicEfficiency();
+
         public bool HasMechCharging = false;
+        
+        private MechSuperchargerSettings settings = null;
+        private SuperchargerType type;
 
         private FieldInfo currentlyChargingMech;
         private Pawn CurrentlyChargingMech => (Pawn)currentlyChargingMech.GetValue(this);
@@ -24,34 +38,75 @@ namespace MechSupercharger
             get { return (float)wasteProduced.GetValue(this); }
             set { wasteProduced.SetValue(this, value); }
         }
-        private float ChargePerTick = 0;
 
         private ThingComp_Supercharger SuperchargerComp => this.TryGetComp<ThingComp_Supercharger>();
 
+        private int GetIdlePowerDraw()
+        {
+            switch (type)
+            {
+                case SuperchargerType.NormalSupercharger: return settings.NormalIdlePower;
+                case SuperchargerType.LargeSupercharger: return settings.LargeIdlePower;
+                case SuperchargerType.NormalAdvancedSupercharger: return settings.NormalAdvancedIdlePower;
+                case SuperchargerType.LargeAdvancedSupercharger: return settings.LargeAdvancedIdlePower;
+            }
+            return 0;
+        }
+        private int GetBasePowerDraw()
+        {
+            switch (type)
+            {
+                case SuperchargerType.NormalSupercharger: return settings.NormalBasePower;
+                case SuperchargerType.LargeSupercharger: return settings.LargeBasePower;
+                case SuperchargerType.NormalAdvancedSupercharger: return settings.NormalAdvancedBasePower;
+                case SuperchargerType.LargeAdvancedSupercharger: return settings.LargeAdvancedBasePower;
+            }
+            return 0;
+        }
+        private float GetToxicEfficiency()
+        {
+            switch (type)
+            {
+                case SuperchargerType.NormalSupercharger: return settings.NormalToxicWasteFactor;
+                case SuperchargerType.LargeSupercharger: return settings.LargeToxicWasteFactor;
+                case SuperchargerType.NormalAdvancedSupercharger: return settings.NormalAdvancedToxicWasteFactor;
+                case SuperchargerType.LargeAdvancedSupercharger: return settings.LargeAdvancedToxicWasteFactor;
+            }
+            return 0;
+        }
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
+            settings = LoadedModManager.GetMod<MechSuperchargerMod >().GetSettings<MechSuperchargerSettings>();
+
             base.SpawnSetup(map, respawningAfterLoad);
-            BasePowerDraw = Power.PowerOutput;
+
+            switch (def.defName)
+            {
+                case "MS_BasicSupercharger":
+                    type = SuperchargerType.NormalSupercharger;
+                    break;
+                case "MS_StandardSupercharger":
+                    type = SuperchargerType.LargeSupercharger;
+                    break;
+                case "MS_BasicAdvancedSupercharger":
+                    type = SuperchargerType.NormalAdvancedSupercharger;
+                    break;
+                case "MS_StandardAdvancedSupercharger":
+                    type = SuperchargerType.LargeAdvancedSupercharger;
+                    break;
+            }
 
             var flags = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance;
             foreach (var field in typeof(Building_MechCharger).GetFields(flags))
             {
                 if (field.Name == "currentlyChargingMech")
                 {
-                    Log.Message($"{ToString()} captured currentlyChargingMech");
                     currentlyChargingMech = field;
                     continue;
                 }
                 if (field.Name == "wasteProduced")
                 {
-                    Log.Message($"{ToString()} captured wasteProduced");
                     wasteProduced = field;
-                    continue;
-                }
-                if (field.Name == "ChargePerTick")
-                {
-                    ChargePerTick = (float)field.GetValue(this);
-                    Log.Message($"{ToString()} captured currentlyChargingMech value {ChargePerTick}");
                     continue;
                 }
             }
@@ -85,59 +140,21 @@ namespace MechSupercharger
                 }
                 chargingMech.needs.energy.CurLevel += 0.000833333354f * (SuperchargerComp.OverCharge - 1);
                 float wasteProducedPerTick = chargingMech.GetStatValue(StatDefOf.WastepacksPerRecharge) * (0.000833333354f / chargingMech.needs.energy.MaxLevel);
-                if(SuperchargerComp.WasteEfficiency == 0)
+                if(ToxicEfficiency == 0)
                 {
                     WasteProduced = 0;
                 }
                 else
                 {
                     float wasteProduced = WasteProduced;
-                    wasteProduced += wasteProducedPerTick * (SuperchargerComp.OverCharge - 1) * SuperchargerComp.WasteEfficiency;
+                    wasteProduced += wasteProducedPerTick * (SuperchargerComp.OverCharge - 1) * ToxicEfficiency;
                     WasteProduced = wasteProduced;
                 }
             }
             else
             {
-                Power.PowerOutput = BasePowerDraw;
+                Power.PowerOutput = IdlePowerDraw;
             }
-        }
-    }
-
-    [HarmonyPatch(typeof(ThingListGroupHelper))]
-    [HarmonyPatch("Includes")]
-    static class ThingListGroupHelper_Includes_Patch
-    {
-        // Add typeof(Building_MechSupercharger) to the ThingRequestGroup.MechCharger
-        static void Postfix(ref bool __result, ThingRequestGroup group, ThingDef def)
-        {
-            if (group == ThingRequestGroup.MechCharger)
-            {
-                __result = __result || def.thingClass == typeof(Building_MechSupercharger);
-            }
-        }
-    }
-    [HarmonyPatch(typeof(Building_MechCharger))]
-    [HarmonyPatch(nameof(Building_MechCharger.StartCharging))]
-    static class Building_MechCharger_StartCharging_Patch
-    {
-        //Hook onto Building_MechCharger.StartCharging so we can react to charging station in use
-        static void Postfix(Building_MechCharger __instance)
-        {
-            Building_MechSupercharger supercharger = __instance as Building_MechSupercharger;
-            if(supercharger == null) return;
-            supercharger.HasMechCharging = true;
-        }
-    }
-    [HarmonyPatch(typeof(Building_MechCharger))]
-    [HarmonyPatch(nameof(Building_MechCharger.StopCharging))]
-    static class Building_MechCharger_StopCharging_Patch
-    {
-        //Hook onto Building_MechCharger.StopCharging so we can react to charging station not in use
-        static void Postfix(Building_MechCharger __instance)
-        {
-            Building_MechSupercharger supercharger = __instance as Building_MechSupercharger;
-            if (supercharger == null) return;
-            supercharger.HasMechCharging = false;
         }
     }
 }
