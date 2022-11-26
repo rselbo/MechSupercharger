@@ -131,7 +131,7 @@ namespace MechSupercharger
             base.Tick();
             if (HasMechCharging)
             {
-                Power.PowerOutput = BasePowerDraw * SuperchargerComp.OverCharge;
+                Power.PowerOutput = -(BasePowerDraw * SuperchargerComp.OverCharge);
                 Pawn chargingMech = CurrentlyChargingMech;
                 if (chargingMech == null)
                 {
@@ -153,7 +153,7 @@ namespace MechSupercharger
             }
             else
             {
-                Power.PowerOutput = IdlePowerDraw;
+                Power.PowerOutput = -IdlePowerDraw;
             }
         }
     }
