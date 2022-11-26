@@ -8,6 +8,7 @@
 		<hasInteractionCell>true</hasInteractionCell>
 		<canOverlapZones>false</canOverlapZones>
 		<fillPercent>0.3</fillPercent>
+		<minifiedDef>MinifiedThing</minifiedDef>
 		<building>
 			<ai_chillDestination>false</ai_chillDestination>
 			<artificialForMeditationPurposes>false</artificialForMeditationPurposes>
