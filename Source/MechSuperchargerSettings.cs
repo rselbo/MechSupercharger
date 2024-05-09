@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RimWorld;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,7 +8,7 @@ using Verse;
 
 namespace MechSupercharger
 {
-    internal class MechSuperchargerSettings : ModSettings
+    public class MechSuperchargerSettings : ModSettings
     {
         public int NormalIdlePower = 200;
         public int NormalBasePower = 200;
@@ -36,6 +37,7 @@ namespace MechSupercharger
             Scribe_Values.Look(ref LargeAdvancedBasePower, "LargeAdvancedBasePower");
             Scribe_Values.Look(ref LargeAdvancedToxicWasteFactor, "LargeAdvancedToxicWasteFactor");
             base.ExposeData();
+
         }
     }
 }

@@ -31,8 +31,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="0Harmony, Version=2.2.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\Lib.Harmony.2.2.2\lib\net48\0Harmony.dll</HintPath>
+    <Reference Include="0Harmony, Version=2.3.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Lib.Harmony.2.3.3\lib\net48\0Harmony.dll</HintPath>
     </Reference>
     <Reference Include="Assembly-CSharp">
       <HintPath>D:\SteamLibrary\steamapps\common\RimWorld\RimWorldWin64_Data\Managed\Assembly-CSharp.dll</HintPath>
@@ -64,7 +64,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy /Y $(TargetPath)  $(SolutionDir)..\Mod\1.4\Assemblies\
-xcopy /Y /E $(SolutionDir)..\Mod\ D:\SteamLibrary\steamapps\common\RimWorld\Mods\MechSupercharger</PostBuildEvent>
+    <PostBuildEvent>xcopy /Y $(TargetPath)  $(SolutionDir)MechSupercharger\Mod\1.5\Assemblies\
+xcopy /Y /E $(SolutionDir)MechSupercharger\Mod\ D:\SteamLibrary\steamapps\common\RimWorld\Mods\MechSupercharger</PostBuildEvent>
   </PropertyGroup>
 </Project>

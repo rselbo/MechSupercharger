@@ -25,8 +25,8 @@ namespace MechSupercharger
         public float BasePowerDraw => GetBasePowerDraw();
         public float ToxicEfficiency => GetToxicEfficiency();
 
-        public bool HasMechCharging = false;
-        
+        public bool HasMechCharging => CurrentlyChargingMech != null;
+
         private MechSuperchargerSettings settings = null;
         private SuperchargerType type;
 
@@ -74,6 +74,7 @@ namespace MechSupercharger
             }
             return 0;
         }
+
         public override void SpawnSetup(Map map, bool respawningAfterLoad)
         {
             settings = LoadedModManager.GetMod<MechSuperchargerMod >().GetSettings<MechSuperchargerSettings>();
@@ -83,15 +84,19 @@ namespace MechSupercharger
             switch (def.defName)
             {
                 case "MS_BasicSupercharger":
+                case "MS_BasicSuperchargerSide":
                     type = SuperchargerType.NormalSupercharger;
                     break;
                 case "MS_StandardSupercharger":
+                case "MS_StandardSuperchargerSide":
                     type = SuperchargerType.LargeSupercharger;
                     break;
                 case "MS_BasicAdvancedSupercharger":
+                case "MS_BasicAdvancedSuperchargerSide":
                     type = SuperchargerType.NormalAdvancedSupercharger;
                     break;
                 case "MS_StandardAdvancedSupercharger":
+                case "MS_StandardAdvancedSuperchargerSide":
                     type = SuperchargerType.LargeAdvancedSupercharger;
                     break;
             }
@@ -116,11 +121,11 @@ namespace MechSupercharger
         {
             StringBuilder stringBuilder = new StringBuilder();
             String inspect = base.GetInspectString();
-            if (!inspect.NullOrEmpty())
-                stringBuilder.Append(inspect);
-            if(SuperchargerComp != null)
+            stringBuilder.Append(inspect);
+            if (SuperchargerComp != null)
             {
-                stringBuilder.Append($"\nSupercharge Level: {SuperchargerComp.OverCharge}");
+                stringBuilder.AppendLineIfNotEmpty();
+                stringBuilder.Append($"Supercharge Level: {SuperchargerComp.OverCharge}");
             }
             return stringBuilder.ToString();
         }
@@ -132,15 +137,19 @@ namespace MechSupercharger
             if (HasMechCharging)
             {
                 Power.PowerOutput = -(BasePowerDraw * SuperchargerComp.OverCharge);
+                const float PowerPerTick = 1f / 1200f; // equivalent to 0.0008333repeating.
+
                 Pawn chargingMech = CurrentlyChargingMech;
                 if (chargingMech == null)
                 {
                     Log.Warning("Could not resolve a charging mech");
                     return;
                 }
-                chargingMech.needs.energy.CurLevel += 0.000833333354f * (SuperchargerComp.OverCharge - 1);
-                float wasteProducedPerTick = chargingMech.GetStatValue(StatDefOf.WastepacksPerRecharge) * (0.000833333354f / chargingMech.needs.energy.MaxLevel);
-                if(ToxicEfficiency == 0)
+
+                chargingMech.needs.energy.CurLevel += PowerPerTick * (SuperchargerComp.OverCharge - 1);
+                float wasteProducedPerTick = chargingMech.GetStatValue(StatDefOf.WastepacksPerRecharge) * (PowerPerTick / chargingMech.needs.energy.MaxLevel);
+
+                if (ToxicEfficiency == 0)
                 {
                     WasteProduced = 0;
                 }

@@ -1,276 +1,530 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <Defs>
 
-	<ThingDef Name="BaseMechSupercharger" ParentName="BuildingBase" Abstract="True">
-		<thingClass>MechSupercharger.Building_MechSupercharger</thingClass>
-		<tickerType>Normal</tickerType>
-		<altitudeLayer>Building</altitudeLayer>
-		<hasInteractionCell>true</hasInteractionCell>
-		<canOverlapZones>false</canOverlapZones>
-		<fillPercent>0.3</fillPercent>
-		<minifiedDef>MinifiedThing</minifiedDef>
-		<building>
-			<ai_chillDestination>false</ai_chillDestination>
-			<artificialForMeditationPurposes>false</artificialForMeditationPurposes>
-			<buildingTags>
-				<li>Biotech</li>
-			</buildingTags>
-		</building>
-		<designationCategory>Biotech</designationCategory>
-		<uiOrder>2410</uiOrder>
-		<comps>
-			<li Class="CompProperties_Flickable"/>
-			<li Class="CompProperties_Forbiddable"/>
-			<li Class="CompProperties_WasteProducer">
-				<showContentsInInspectPane>false</showContentsInInspectPane>
-			</li>
-		</comps>
-		<drawerType>MapMeshAndRealTime</drawerType>
-	</ThingDef>
-	
-	<ThingDef Name="BasicSupercharger" ParentName="BaseMechSupercharger">
-		<defName>MS_BasicSupercharger</defName>
-		<label>mech supercharger</label>
-		<description>Lightweight mechanoids can recharge here. During recharge, this recharger produces toxic wastepacks and stores them internally. Haulers must remove the wastepacks from time to time.</description>
-		<graphicData>
-			<texPath>Things/Building/Production/BasicSupercharger</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(3,1)</drawSize>
-			<shadowData>
-				<volume>(2.9, 0.5, 0.9)</volume>
-			</shadowData>
-		</graphicData>
-		<interactionCellOffset>(0,0,1)</interactionCellOffset>
-		<passability>PassThroughOnly</passability>
-		<statBases>
-			<MaxHitPoints>150</MaxHitPoints>
-			<WorkToBuild>8000</WorkToBuild>
-			<Mass>25</Mass>
-			<Flammability>0.5</Flammability>
-		</statBases>
-		<size>(3,1)</size>
-		<building>
-			<requiredMechWeightClasses>
-				<li>Light</li>
-			</requiredMechWeightClasses>
-			<barDrawData>
-				<north>
-					<preRotationOffset>(0.0,0.04)</preRotationOffset>
-					<size>(0.48,0.12)</size>
-				</north>
-				<south>
-					<preRotationOffset>(0.0,0.04)</preRotationOffset>
-					<size>(0.48,0.12)</size>
-				</south>
-				<east>
-					<preRotationOffset>(0.0,-0.04)</preRotationOffset>
-					<size>(0.48,0.12)</size>
-				</east>
-				<west>
-					<preRotationOffset>(0.0,-0.04)</preRotationOffset>
-					<size>(0.48,0.12)</size>
-				</west>
-			</barDrawData>
-		</building>
-		<costList>
-			<Steel>125</Steel>
-			<ComponentIndustrial>4</ComponentIndustrial>
-		</costList>
-		<researchPrerequisites>
-			<li>BasicMechtech</li>
-		</researchPrerequisites>
-		<comps>
-			<li Class="CompProperties_ThingContainer">
-				<compClass>CompThingContainer</compClass>
-				<stackLimit>5</stackLimit>
-				<drawContainedThing>false</drawContainedThing>
-				<dropEffecterDef>MechChargerWasteRemoved</dropEffecterDef>
-			</li>
-			<li Class="CompProperties_Power">
-				<compClass>CompPowerTrader</compClass>
-				<basePowerConsumption>200</basePowerConsumption>
-			</li>
-			<li Class="MechSupercharger.CompProperties_Supercharger">
-				<WasteEfficiency>1.25</WasteEfficiency>
-			</li>
-		</comps>
-	</ThingDef>
+  <DesignatorDropdownGroupDef>
+    <defName>MechSupercharger_Group</defName>
+  </DesignatorDropdownGroupDef>
 
-	<ThingDef Name="StandardSupercharger" ParentName="BaseMechSupercharger">
-		<defName>MS_StandardSupercharger</defName>
-		<label>large mech supercharger</label>
-		<description>Medium, heavy, and ultraheavy mechanoids can recharge here. During recharge, this recharger produces toxic wastepacks and stores them internally. Haulers must remove the wastepacks from time to time.</description>
-		<graphicData>
-			<texPath>Things/Building/Production/LargeSupercharger</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(3,2)</drawSize>
-			<shadowData>
-				<volume>(2.9, 0.5, 1.9)</volume>
-			</shadowData>
-		</graphicData>
-		<interactionCellOffset>(0,0,2)</interactionCellOffset>
-		<passability>Impassable</passability>
-		<statBases>
-			<MaxHitPoints>250</MaxHitPoints>
-			<WorkToBuild>8000</WorkToBuild>
-			<Mass>25</Mass>
-			<Flammability>0.5</Flammability>
-		</statBases>
-		<size>(3,2)</size>
-		<building>
-			<requiredMechWeightClasses>
-				<li>Medium</li>
-				<li>Heavy</li>
-				<li>UltraHeavy</li>
-			</requiredMechWeightClasses>
-			<barDrawData>
-				<north>
-					<preRotationOffset>(-0.01,0.56)</preRotationOffset>
-					<size>(0.48,0.12)</size>
-				</north>
-				<south>
-					<preRotationOffset>(-0.01,0.56)</preRotationOffset>
-					<size>(0.48,0.12)</size>
-				</south>
-				<east>
-					<preRotationOffset>(0.0,-0.56)</preRotationOffset>
-					<size>(0.48,0.12)</size>
-				</east>
-				<west>
-					<preRotationOffset>(0.0,-0.56)</preRotationOffset>
-					<size>(0.48,0.12)</size>
-				</west>
-			</barDrawData>
-		</building>
-		<constructionSkillPrerequisite>5</constructionSkillPrerequisite>
-		<costList>
-			<Steel>250</Steel>
-			<ComponentIndustrial>4</ComponentIndustrial>
-		</costList>
-		<researchPrerequisites>
-			<li>StandardMechtech</li>
-		</researchPrerequisites>
-		<comps>
-			<li Class="CompProperties_ThingContainer">
-				<compClass>CompThingContainer</compClass>
-				<stackLimit>10</stackLimit>
-			</li>
-			<li Class="CompProperties_Power">
-				<compClass>CompPowerTrader</compClass>
-				<basePowerConsumption>400</basePowerConsumption>
-			</li>
-			<li Class="MechSupercharger.CompProperties_Supercharger">
-				<WasteEfficiency>1.25</WasteEfficiency>
-			</li>
-		</comps>
-	</ThingDef>
+  <ThingDef Name="BaseMechSupercharger" ParentName="BuildingBase" Abstract="True">
+    <thingClass>MechSupercharger.Building_MechSupercharger</thingClass>
+    <tickerType>Normal</tickerType>
+    <altitudeLayer>Building</altitudeLayer>
+    <hasInteractionCell>true</hasInteractionCell>
+    <canOverlapZones>false</canOverlapZones>
+    <fillPercent>0.3</fillPercent>
+    <minifiedDef>MinifiedThing</minifiedDef>
+    <thingCategories>
+      <li>BuildingsMisc</li>
+    </thingCategories>
+    <building>
+      <ai_chillDestination>false</ai_chillDestination>
+      <artificialForMeditationPurposes>false</artificialForMeditationPurposes>
+      <buildingTags>
+        <li>Biotech</li>
+      </buildingTags>
+    </building>
+    <designationCategory>Biotech</designationCategory>
+    <uiOrder>2410</uiOrder>
+    <comps>
+      <li Class="CompProperties_Flickable"/>
+      <li Class="CompProperties_Forbiddable"/>
+      <li Class="CompProperties_WasteProducer">
+        <showContentsInInspectPane>false</showContentsInInspectPane>
+      </li>
+    </comps>
+    <drawerType>MapMeshAndRealTime</drawerType>
+    <designatorDropdown>MechSupercharger_Group</designatorDropdown>
+  </ThingDef>
 
-	<ThingDef Name="BasicAdvancedSupercharger" ParentName="BaseMechSupercharger">
-		<defName>MS_BasicAdvancedSupercharger</defName>
-		<label>advanced mech supercharger</label>
-		<description>Lightweight mechanoids can recharge here. During recharge, this recharger has an internal waste atomizer so it produces no waste.</description>
-		<graphicData>
-			<texPath>Things/Building/Production/BasicAdvancedSupercharger</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(3,1)</drawSize>
-			<shadowData>
-				<volume>(2.9, 0.5, 0.9)</volume>
-			</shadowData>
-		</graphicData>
-		<interactionCellOffset>(0,0,1)</interactionCellOffset>
-		<passability>PassThroughOnly</passability>
-		<statBases>
-			<MaxHitPoints>150</MaxHitPoints>
-			<WorkToBuild>8000</WorkToBuild>
-			<Mass>25</Mass>
-			<Flammability>0.5</Flammability>
-		</statBases>
-		<size>(3,1)</size>
-		<building>
-			<requiredMechWeightClasses>
-				<li>Light</li>
-			</requiredMechWeightClasses>
-		</building>
-		<costList>
-			<Steel>250</Steel>
-			<ComponentIndustrial>4</ComponentIndustrial>
-			<Plasteel>50</Plasteel>
-			<NanostructuringChip>1</NanostructuringChip>
-		</costList>
-		<researchPrerequisites>
-			<li>BasicMechtech</li>
-			<li>WastepackAtomizer</li>
-		</researchPrerequisites>
-		<comps>
-			<li Class="CompProperties_ThingContainer">
-				<compClass>CompThingContainer</compClass>
-				<stackLimit>5</stackLimit>
-				<drawContainedThing>false</drawContainedThing>
-				<dropEffecterDef>MechChargerWasteRemoved</dropEffecterDef>
-			</li>
-			<li Class="CompProperties_Power">
-				<compClass>CompPowerTrader</compClass>
-				<basePowerConsumption>300</basePowerConsumption>
-			</li>
-			<li Class="MechSupercharger.CompProperties_Supercharger">
-				<WasteEfficiency>0</WasteEfficiency>
-			</li>
-		</comps>
-	</ThingDef>
+  <ThingDef Name="BasicSupercharger" ParentName="BaseMechSupercharger">
+    <defName>MS_BasicSupercharger</defName>
+    <label>mech supercharger</label>
+    <description>Lightweight mechanoids can recharge here. During recharge, this recharger produces toxic wastepacks and stores them internally. Haulers must remove the wastepacks from time to time.</description>
+    <graphicData>
+      <texPath>Things/Building/Production/BasicSupercharger</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(3,1)</drawSize>
+      <shadowData>
+        <volume>(2.9, 0.5, 0.9)</volume>
+      </shadowData>
+    </graphicData>
+    <interactionCellOffset>(0,0,1)</interactionCellOffset>
+    <passability>PassThroughOnly</passability>
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <WorkToBuild>8000</WorkToBuild>
+      <Mass>25</Mass>
+      <Flammability>0.5</Flammability>
+    </statBases>
+    <size>(3,1)</size>
+    <building>
+      <requiredMechWeightClasses>
+        <li>Light</li>
+      </requiredMechWeightClasses>
+      <barDrawData>
+        <north>
+          <preRotationOffset>(0.0,0.04)</preRotationOffset>
+          <size>(0.48,0.12)</size>
+        </north>
+        <south>
+          <preRotationOffset>(0.0,0.04)</preRotationOffset>
+          <size>(0.48,0.12)</size>
+        </south>
+        <east>
+          <preRotationOffset>(0.0,-0.04)</preRotationOffset>
+          <size>(0.48,0.12)</size>
+        </east>
+        <west>
+          <preRotationOffset>(0.0,-0.04)</preRotationOffset>
+          <size>(0.48,0.12)</size>
+        </west>
+      </barDrawData>
+    </building>
+    <costList>
+      <Steel>125</Steel>
+      <ComponentIndustrial>4</ComponentIndustrial>
+    </costList>
+    <researchPrerequisites>
+      <li>BasicMechtech</li>
+    </researchPrerequisites>
+    <comps>
+      <li Class="CompProperties_ThingContainer">
+        <compClass>CompThingContainer</compClass>
+        <stackLimit>5</stackLimit>
+        <drawContainedThing>false</drawContainedThing>
+        <dropEffecterDef>MechChargerWasteRemoved</dropEffecterDef>
+      </li>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>200</basePowerConsumption>
+      </li>
+      <li Class="MechSupercharger.CompProperties_Supercharger">
+        <WasteEfficiency>1.25</WasteEfficiency>
+      </li>
+    </comps>
+  </ThingDef>
+  
+  <ThingDef Name="BasicSuperchargerSide" ParentName="BaseMechSupercharger">
+    <defName>MS_BasicSuperchargerSide</defName>
+    <label>mech supercharger side</label>
+    <description>Lightweight mechanoids can recharge here at the side of the machine. During recharge, this recharger produces toxic wastepacks and stores them internally. Haulers must remove the wastepacks from time to time.</description>
+    <graphicData>
+      <texPath>Things/Building/Production/BasicSupercharger</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(3,1)</drawSize>
+      <shadowData>
+        <volume>(2.9, 0.5, 0.9)</volume>
+      </shadowData>
+    </graphicData>
+    <interactionCellOffset>(2,0,0)</interactionCellOffset>
+    <passability>PassThroughOnly</passability>
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <WorkToBuild>8000</WorkToBuild>
+      <Mass>25</Mass>
+      <Flammability>0.5</Flammability>
+    </statBases>
+    <size>(3,1)</size>
+    <building>
+      <requiredMechWeightClasses>
+        <li>Light</li>
+      </requiredMechWeightClasses>
+      <barDrawData>
+        <north>
+          <preRotationOffset>(0.0,0.04)</preRotationOffset>
+          <size>(0.48,0.12)</size>
+        </north>
+        <south>
+          <preRotationOffset>(0.0,0.04)</preRotationOffset>
+          <size>(0.48,0.12)</size>
+        </south>
+        <east>
+          <preRotationOffset>(0.0,-0.04)</preRotationOffset>
+          <size>(0.48,0.12)</size>
+        </east>
+        <west>
+          <preRotationOffset>(0.0,-0.04)</preRotationOffset>
+          <size>(0.48,0.12)</size>
+        </west>
+      </barDrawData>
+    </building>
+    <costList>
+      <Steel>125</Steel>
+      <ComponentIndustrial>4</ComponentIndustrial>
+    </costList>
+    <researchPrerequisites>
+      <li>BasicMechtech</li>
+    </researchPrerequisites>
+    <comps>
+      <li Class="CompProperties_ThingContainer">
+        <compClass>CompThingContainer</compClass>
+        <stackLimit>5</stackLimit>
+        <drawContainedThing>false</drawContainedThing>
+        <dropEffecterDef>MechChargerWasteRemoved</dropEffecterDef>
+      </li>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>200</basePowerConsumption>
+      </li>
+      <li Class="MechSupercharger.CompProperties_Supercharger">
+        <WasteEfficiency>1.25</WasteEfficiency>
+      </li>
+    </comps>
+  </ThingDef>
 
-	<ThingDef Name="StandardAdvancedSupercharger" ParentName="BaseMechSupercharger">
-		<defName>MS_StandardAdvancedSupercharger</defName>
-		<label>large advanced mech supercharger</label>
-		<description>Medium, heavy, and ultraheavy mechanoids can recharge here. During recharge, this recharger has an internal waste atomizer so it produces no waste..</description>
-		<graphicData>
-			<texPath>Things/Building/Production/LargeAdvancedSupercharger</texPath>
-			<graphicClass>Graphic_Single</graphicClass>
-			<drawSize>(3,2)</drawSize>
-			<shadowData>
-				<volume>(2.9, 0.5, 1.9)</volume>
-			</shadowData>
-		</graphicData>
-		<interactionCellOffset>(0,0,2)</interactionCellOffset>
-		<passability>Impassable</passability>
-		<statBases>
-			<MaxHitPoints>250</MaxHitPoints>
-			<WorkToBuild>8000</WorkToBuild>
-			<Mass>25</Mass>
-			<Flammability>0.5</Flammability>
-		</statBases>
-		<size>(3,2)</size>
-		<building>
-			<requiredMechWeightClasses>
-				<li>Medium</li>
-				<li>Heavy</li>
-				<li>UltraHeavy</li>
-			</requiredMechWeightClasses>
-		</building>
-		<constructionSkillPrerequisite>5</constructionSkillPrerequisite>
-		<costList>
-			<Steel>450</Steel>
-			<ComponentIndustrial>4</ComponentIndustrial>
-			<Plasteel>50</Plasteel>
-			<NanostructuringChip>1</NanostructuringChip>
-		</costList>
-		<researchPrerequisites>
-			<li>StandardMechtech</li>
-			<li>WastepackAtomizer</li>
-		</researchPrerequisites>
-		<comps>
-			<li Class="CompProperties_ThingContainer">
-				<compClass>CompThingContainer</compClass>
-				<stackLimit>10</stackLimit>
-				<drawContainedThing>false</drawContainedThing>
-				<dropEffecterDef>MechChargerWasteRemoved</dropEffecterDef>
-			</li>
-			<li Class="CompProperties_Power">
-				<compClass>CompPowerTrader</compClass>
-				<basePowerConsumption>500</basePowerConsumption>
-			</li>
-			<li Class="MechSupercharger.CompProperties_Supercharger">
-				<WasteEfficiency>0</WasteEfficiency>
-			</li>
-		</comps>
-	</ThingDef>
+  <ThingDef Name="StandardSupercharger" ParentName="BaseMechSupercharger">
+    <defName>MS_StandardSupercharger</defName>
+    <label>large mech supercharger</label>
+    <description>Medium, heavy, and ultraheavy mechanoids can recharge here. During recharge, this recharger produces toxic wastepacks and stores them internally. Haulers must remove the wastepacks from time to time.</description>
+    <graphicData>
+      <texPath>Things/Building/Production/LargeSupercharger</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(3,2)</drawSize>
+      <shadowData>
+        <volume>(2.9, 0.5, 1.9)</volume>
+      </shadowData>
+    </graphicData>
+    <interactionCellOffset>(0,0,2)</interactionCellOffset>
+    <passability>PassThroughOnly</passability>
+    <statBases>
+      <MaxHitPoints>250</MaxHitPoints>
+      <WorkToBuild>8000</WorkToBuild>
+      <Mass>25</Mass>
+      <Flammability>0.5</Flammability>
+    </statBases>
+    <size>(3,2)</size>
+    <building>
+      <requiredMechWeightClasses>
+        <li>Medium</li>
+        <li>Heavy</li>
+        <li>UltraHeavy</li>
+      </requiredMechWeightClasses>
+      <barDrawData>
+        <north>
+          <preRotationOffset>(-0.01,0.56)</preRotationOffset>
+          <size>(0.48,0.12)</size>
+        </north>
+        <south>
+          <preRotationOffset>(-0.01,0.56)</preRotationOffset>
+          <size>(0.48,0.12)</size>
+        </south>
+        <east>
+          <preRotationOffset>(0.0,-0.56)</preRotationOffset>
+          <size>(0.48,0.12)</size>
+        </east>
+        <west>
+          <preRotationOffset>(0.0,-0.56)</preRotationOffset>
+          <size>(0.48,0.12)</size>
+        </west>
+      </barDrawData>
+    </building>
+    <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+    <costList>
+      <Steel>250</Steel>
+      <ComponentIndustrial>4</ComponentIndustrial>
+    </costList>
+    <researchPrerequisites>
+      <li>StandardMechtech</li>
+    </researchPrerequisites>
+    <comps>
+      <li Class="CompProperties_ThingContainer">
+        <compClass>CompThingContainer</compClass>
+        <stackLimit>10</stackLimit>
+      </li>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>400</basePowerConsumption>
+      </li>
+      <li Class="MechSupercharger.CompProperties_Supercharger">
+        <WasteEfficiency>1.25</WasteEfficiency>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef Name="StandardSuperchargerSide" ParentName="BaseMechSupercharger">
+    <defName>MS_StandardSuperchargerSide</defName>
+    <label>large mech supercharger side</label>
+    <description>Medium, heavy, and ultraheavy mechanoids can recharge here at the side of the machine. During recharge, this recharger produces toxic wastepacks and stores them internally. Haulers must remove the wastepacks from time to time.</description>
+    <graphicData>
+      <texPath>Things/Building/Production/LargeSupercharger</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(3,2)</drawSize>
+      <shadowData>
+        <volume>(2.9, 0.5, 1.9)</volume>
+      </shadowData>
+    </graphicData>
+    <interactionCellOffset>(2,0,0)</interactionCellOffset>
+    <passability>PassThroughOnly</passability>
+    <statBases>
+      <MaxHitPoints>250</MaxHitPoints>
+      <WorkToBuild>8000</WorkToBuild>
+      <Mass>25</Mass>
+      <Flammability>0.5</Flammability>
+    </statBases>
+    <size>(3,2)</size>
+    <building>
+      <requiredMechWeightClasses>
+        <li>Medium</li>
+        <li>Heavy</li>
+        <li>UltraHeavy</li>
+      </requiredMechWeightClasses>
+      <barDrawData>
+        <north>
+          <preRotationOffset>(-0.01,0.56)</preRotationOffset>
+          <size>(0.48,0.12)</size>
+        </north>
+        <south>
+          <preRotationOffset>(-0.01,0.56)</preRotationOffset>
+          <size>(0.48,0.12)</size>
+        </south>
+        <east>
+          <preRotationOffset>(0.0,-0.56)</preRotationOffset>
+          <size>(0.48,0.12)</size>
+        </east>
+        <west>
+          <preRotationOffset>(0.0,-0.56)</preRotationOffset>
+          <size>(0.48,0.12)</size>
+        </west>
+      </barDrawData>
+    </building>
+    <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+    <costList>
+      <Steel>250</Steel>
+      <ComponentIndustrial>4</ComponentIndustrial>
+    </costList>
+    <researchPrerequisites>
+      <li>StandardMechtech</li>
+    </researchPrerequisites>
+    <comps>
+      <li Class="CompProperties_ThingContainer">
+        <compClass>CompThingContainer</compClass>
+        <stackLimit>10</stackLimit>
+      </li>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>400</basePowerConsumption>
+      </li>
+      <li Class="MechSupercharger.CompProperties_Supercharger">
+        <WasteEfficiency>1.25</WasteEfficiency>
+      </li>
+    </comps>
+  </ThingDef>
+  
+  <ThingDef Name="BasicAdvancedSupercharger" ParentName="BaseMechSupercharger">
+    <defName>MS_BasicAdvancedSupercharger</defName>
+    <label>advanced mech supercharger</label>
+    <description>Lightweight mechanoids can recharge here. During recharge, this recharger has an internal waste atomizer so it produces no waste.</description>
+    <graphicData>
+      <texPath>Things/Building/Production/BasicAdvancedSupercharger</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(3,1)</drawSize>
+      <shadowData>
+        <volume>(2.9, 0.5, 0.9)</volume>
+      </shadowData>
+    </graphicData>
+    <interactionCellOffset>(0,0,1)</interactionCellOffset>
+    <passability>PassThroughOnly</passability>
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <WorkToBuild>8000</WorkToBuild>
+      <Mass>25</Mass>
+      <Flammability>0.5</Flammability>
+    </statBases>
+    <size>(3,1)</size>
+    <building>
+      <requiredMechWeightClasses>
+        <li>Light</li>
+      </requiredMechWeightClasses>
+    </building>
+    <costList>
+      <Steel>250</Steel>
+      <ComponentIndustrial>4</ComponentIndustrial>
+      <Plasteel>50</Plasteel>
+      <NanostructuringChip>1</NanostructuringChip>
+    </costList>
+    <researchPrerequisites>
+      <li>BasicMechtech</li>
+      <li>WastepackAtomizer</li>
+    </researchPrerequisites>
+    <comps>
+      <li Class="CompProperties_ThingContainer">
+        <compClass>CompThingContainer</compClass>
+        <stackLimit>5</stackLimit>
+        <drawContainedThing>false</drawContainedThing>
+        <dropEffecterDef>MechChargerWasteRemoved</dropEffecterDef>
+      </li>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>300</basePowerConsumption>
+      </li>
+      <li Class="MechSupercharger.CompProperties_Supercharger">
+        <WasteEfficiency>0</WasteEfficiency>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef Name="BasicAdvancedSuperchargerSide" ParentName="BaseMechSupercharger">
+    <defName>MS_BasicAdvancedSuperchargerSide</defName>
+    <label>advanced mech supercharger side</label>
+    <description>Lightweight mechanoids can recharge here at the side of the machine. During recharge, this recharger has an internal waste atomizer so it produces no waste.</description>
+    <graphicData>
+      <texPath>Things/Building/Production/BasicAdvancedSupercharger</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(3,1)</drawSize>
+      <shadowData>
+        <volume>(2.9, 0.5, 0.9)</volume>
+      </shadowData>
+    </graphicData>
+    <interactionCellOffset>(2,0,0)</interactionCellOffset>
+    <passability>PassThroughOnly</passability>
+    <statBases>
+      <MaxHitPoints>150</MaxHitPoints>
+      <WorkToBuild>8000</WorkToBuild>
+      <Mass>25</Mass>
+      <Flammability>0.5</Flammability>
+    </statBases>
+    <size>(3,1)</size>
+    <building>
+      <requiredMechWeightClasses>
+        <li>Light</li>
+      </requiredMechWeightClasses>
+    </building>
+    <costList>
+      <Steel>250</Steel>
+      <ComponentIndustrial>4</ComponentIndustrial>
+      <Plasteel>50</Plasteel>
+      <NanostructuringChip>1</NanostructuringChip>
+    </costList>
+    <researchPrerequisites>
+      <li>BasicMechtech</li>
+      <li>WastepackAtomizer</li>
+    </researchPrerequisites>
+    <comps>
+      <li Class="CompProperties_ThingContainer">
+        <compClass>CompThingContainer</compClass>
+        <stackLimit>5</stackLimit>
+        <drawContainedThing>false</drawContainedThing>
+        <dropEffecterDef>MechChargerWasteRemoved</dropEffecterDef>
+      </li>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>300</basePowerConsumption>
+      </li>
+      <li Class="MechSupercharger.CompProperties_Supercharger">
+        <WasteEfficiency>0</WasteEfficiency>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef Name="StandardAdvancedSupercharger" ParentName="BaseMechSupercharger">
+    <defName>MS_StandardAdvancedSupercharger</defName>
+    <label>large advanced mech supercharger</label>
+    <description>Medium, heavy, and ultraheavy mechanoids can recharge here. During recharge, this recharger has an internal waste atomizer so it produces no waste..</description>
+    <graphicData>
+      <texPath>Things/Building/Production/LargeAdvancedSupercharger</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(3,2)</drawSize>
+      <shadowData>
+        <volume>(2.9, 0.5, 1.9)</volume>
+      </shadowData>
+    </graphicData>
+    <interactionCellOffset>(0,0,2)</interactionCellOffset>
+    <passability>PassThroughOnly</passability>
+    <statBases>
+      <MaxHitPoints>250</MaxHitPoints>
+      <WorkToBuild>8000</WorkToBuild>
+      <Mass>25</Mass>
+      <Flammability>0.5</Flammability>
+    </statBases>
+    <size>(3,2)</size>
+    <building>
+      <requiredMechWeightClasses>
+        <li>Medium</li>
+        <li>Heavy</li>
+        <li>UltraHeavy</li>
+      </requiredMechWeightClasses>
+    </building>
+    <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+    <costList>
+      <Steel>450</Steel>
+      <ComponentIndustrial>4</ComponentIndustrial>
+      <Plasteel>50</Plasteel>
+      <NanostructuringChip>1</NanostructuringChip>
+    </costList>
+    <researchPrerequisites>
+      <li>StandardMechtech</li>
+      <li>WastepackAtomizer</li>
+    </researchPrerequisites>
+    <comps>
+      <li Class="CompProperties_ThingContainer">
+        <compClass>CompThingContainer</compClass>
+        <stackLimit>10</stackLimit>
+        <drawContainedThing>false</drawContainedThing>
+        <dropEffecterDef>MechChargerWasteRemoved</dropEffecterDef>
+      </li>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>500</basePowerConsumption>
+      </li>
+      <li Class="MechSupercharger.CompProperties_Supercharger">
+        <WasteEfficiency>0</WasteEfficiency>
+      </li>
+    </comps>
+  </ThingDef>
+
+  <ThingDef Name="StandardAdvancedSuperchargerSide" ParentName="BaseMechSupercharger">
+    <defName>MS_StandardAdvancedSuperchargerSide</defName>
+    <label>large advanced mech supercharger side</label>
+    <description>Medium, heavy, and ultraheavy mechanoids can recharge here at the side of the machine. During recharge, this recharger has an internal waste atomizer so it produces no waste..</description>
+    <graphicData>
+      <texPath>Things/Building/Production/LargeAdvancedSupercharger</texPath>
+      <graphicClass>Graphic_Single</graphicClass>
+      <drawSize>(3,2)</drawSize>
+      <shadowData>
+        <volume>(2.9, 0.5, 1.9)</volume>
+      </shadowData>
+    </graphicData>
+    <interactionCellOffset>(2,0,0)</interactionCellOffset>
+    <passability>PassThroughOnly</passability>
+    <statBases>
+      <MaxHitPoints>250</MaxHitPoints>
+      <WorkToBuild>8000</WorkToBuild>
+      <Mass>25</Mass>
+      <Flammability>0.5</Flammability>
+    </statBases>
+    <size>(3,2)</size>
+    <building>
+      <requiredMechWeightClasses>
+        <li>Medium</li>
+        <li>Heavy</li>
+        <li>UltraHeavy</li>
+      </requiredMechWeightClasses>
+    </building>
+    <constructionSkillPrerequisite>5</constructionSkillPrerequisite>
+    <costList>
+      <Steel>450</Steel>
+      <ComponentIndustrial>4</ComponentIndustrial>
+      <Plasteel>50</Plasteel>
+      <NanostructuringChip>1</NanostructuringChip>
+    </costList>
+    <researchPrerequisites>
+      <li>StandardMechtech</li>
+      <li>WastepackAtomizer</li>
+    </researchPrerequisites>
+    <comps>
+      <li Class="CompProperties_ThingContainer">
+        <compClass>CompThingContainer</compClass>
+        <stackLimit>10</stackLimit>
+        <drawContainedThing>false</drawContainedThing>
+        <dropEffecterDef>MechChargerWasteRemoved</dropEffecterDef>
+      </li>
+      <li Class="CompProperties_Power">
+        <compClass>CompPowerTrader</compClass>
+        <basePowerConsumption>500</basePowerConsumption>
+      </li>
+      <li Class="MechSupercharger.CompProperties_Supercharger">
+        <WasteEfficiency>0</WasteEfficiency>
+      </li>
+    </comps>
+  </ThingDef>
 </Defs>

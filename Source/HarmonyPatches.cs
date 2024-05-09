@@ -29,29 +29,29 @@ namespace MechSupercharger
         }
     }
 
-    [HarmonyPatch(typeof(Building_MechCharger))]
-    [HarmonyPatch(nameof(Building_MechCharger.StartCharging))]
-    static class Building_MechCharger_StartCharging_Patch
-    {
-        //Hook onto Building_MechCharger.StartCharging so we can react to charging station in use
-        static void Postfix(Building_MechCharger __instance)
-        {
-            Building_MechSupercharger supercharger = __instance as Building_MechSupercharger;
-            if (supercharger == null) return;
-            supercharger.HasMechCharging = true;
-        }
-    }
+    //[HarmonyPatch(typeof(Building_MechCharger))]
+    //[HarmonyPatch(nameof(Building_MechCharger.StartCharging))]
+    //static class Building_MechCharger_StartCharging_Patch
+    //{
+    //    //Hook onto Building_MechCharger.StartCharging so we can react to charging station in use
+    //    static void Postfix(Building_MechCharger __instance)
+    //    {
+    //        Building_MechSupercharger supercharger = __instance as Building_MechSupercharger;
+    //        if (supercharger == null) return;
+    //        supercharger.HasMechCharging = true;
+    //    }
+    //}
 
-    [HarmonyPatch(typeof(Building_MechCharger))]
-    [HarmonyPatch(nameof(Building_MechCharger.StopCharging))]
-    static class Building_MechCharger_StopCharging_Patch
-    {
-        //Hook onto Building_MechCharger.StopCharging so we can react to charging station not in use
-        static void Postfix(Building_MechCharger __instance)
-        {
-            Building_MechSupercharger supercharger = __instance as Building_MechSupercharger;
-            if (supercharger == null) return;
-            supercharger.HasMechCharging = false;
-        }
-    }
+    //[HarmonyPatch(typeof(Building_MechCharger))]
+    //[HarmonyPatch(nameof(Building_MechCharger.StopCharging))]
+    //static class Building_MechCharger_StopCharging_Patch
+    //{
+    //    //Hook onto Building_MechCharger.StopCharging so we can react to charging station not in use
+    //    static void Postfix(Building_MechCharger __instance)
+    //    {
+    //        Building_MechSupercharger supercharger = __instance as Building_MechSupercharger;
+    //        if (supercharger == null) return;
+    //        supercharger.HasMechCharging = false;
+    //    }
+    //}
 }
