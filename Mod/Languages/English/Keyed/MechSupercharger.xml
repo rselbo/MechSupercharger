@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<LanguageData>
+  <!-- Strings visible in the UI -->
+  <UI_SuperchargeLevel>Supercharge Level: {0}</UI_SuperchargeLevel>
+  <UI_LowerPower>Lower Power</UI_LowerPower>
+  <UI_LowerPowerDesc>Reduce the Supercharge Level by 1</UI_LowerPowerDesc>
+  <UI_RaisePower>Raise Power</UI_RaisePower>
+  <UI_RaisePowerDesc>Raise the Supercharge Level by 1</UI_RaisePowerDesc>
+
+  <!-- Strings visible in the settings menu -->
+  <Settings_MechSupercharger>Mech Supercharger</Settings_MechSupercharger>
+  <Settings_Normal>Normal</Settings_Normal>
+  <Settings_Large>Large</Settings_Large>
+  <Settings_NormalAdvanced>Normal advanced</Settings_NormalAdvanced>
+  <Settings_LargeAdvanced>Large advanced</Settings_LargeAdvanced>
+  <Settings_ToxicWasteFactor>{0} supercharger toxic waste factor {1}</Settings_ToxicWasteFactor>
+  <Settings_ToxicWasteFactorTooltip>The factor of how much toxic waste the machine uses compared to a vanilla charger</Settings_ToxicWasteFactorTooltip>
+  <Settings_IdlePower>{0} supercharger idle power</Settings_IdlePower>
+  <Settings_BasePower>{0} supercharger base power draw</Settings_BasePower>
+
+  <!-- Messages printed to the debug log -->
+  <LogWarning_NoMech>Could not resolve a charging mech</LogWarning_NoMech>
+</LanguageData>

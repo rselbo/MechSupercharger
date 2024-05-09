@@ -125,7 +125,7 @@ namespace MechSupercharger
             if (SuperchargerComp != null)
             {
                 stringBuilder.AppendLineIfNotEmpty();
-                stringBuilder.Append($"Supercharge Level: {SuperchargerComp.OverCharge}");
+                stringBuilder.Append("UI_SuperchargeLevel".Translate(SuperchargerComp.OverCharge));
             }
             return stringBuilder.ToString();
         }
@@ -142,7 +142,7 @@ namespace MechSupercharger
                 Pawn chargingMech = CurrentlyChargingMech;
                 if (chargingMech == null)
                 {
-                    Log.Warning("Could not resolve a charging mech");
+                    Log.Warning("LogWarning_NoMech".Translate());
                     return;
                 }
 

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageData>
+
+  <MS_BasicSupercharger.label>mech supercharger</MS_BasicSupercharger.label>
+  <MS_BasicSupercharger.description>Lightweight mechanoids can recharge here. During recharge, this recharger produces toxic wastepacks and stores them internally. Haulers must remove the wastepacks from time to time.</MS_BasicSupercharger.description>
+  <MS_BasicSuperchargerSide.label>mech supercharger side</MS_BasicSuperchargerSide.label>
+  <MS_BasicSuperchargerSide.description>Lightweight mechanoids can recharge here at the side of the machine. During recharge, this recharger produces toxic wastepacks and stores them internally. Haulers must remove the wastepacks from time to time.</MS_BasicSuperchargerSide.description>
+
+  <MS_StandardSupercharger.label>large mech supercharger</MS_StandardSupercharger.label>
+  <MS_StandardSupercharger.description>Medium, heavy, and ultraheavy mechanoids can recharge here. During recharge, this recharger produces toxic wastepacks and stores them internally. Haulers must remove the wastepacks from time to time.</MS_StandardSupercharger.description>
+  <MS_StandardSuperchargerSide.label>large mech supercharger side</MS_StandardSuperchargerSide.label>
+  <MS_StandardSuperchargerSide.description>Medium, heavy, and ultraheavy mechanoids can recharge here at the side of the machine. During recharge, this recharger produces toxic wastepacks and stores them internally. Haulers must remove the wastepacks from time to time.</MS_StandardSuperchargerSide.description>
+
+  <MS_BasicAdvancedSupercharger.label>advanced mech supercharger</MS_BasicAdvancedSupercharger.label>
+  <MS_BasicAdvancedSupercharger.description>Lightweight mechanoids can recharge here. During recharge, this recharger has an internal waste atomizer so it produces no waste.</MS_BasicAdvancedSupercharger.description>
+  <MS_BasicAdvancedSuperchargerSide.label>advanced mech supercharger side</MS_BasicAdvancedSuperchargerSide.label>
+  <MS_BasicAdvancedSuperchargerSide.description>Lightweight mechanoids can recharge here at the side of the machine. During recharge, this recharger has an internal waste atomizer so it produces no waste.</MS_BasicAdvancedSuperchargerSide.description>
+
+  <MS_StandardAdvancedSupercharger.label>large advanced mech supercharger</MS_StandardAdvancedSupercharger.label>
+  <MS_StandardAdvancedSupercharger.description>Medium, heavy, and ultraheavy mechanoids can recharge here. During recharge, this recharger has an internal waste atomizer so it produces no waste..</MS_StandardAdvancedSupercharger.description>
+  <MS_StandardAdvancedSuperchargerSide.label>large advanced mech supercharger side</MS_StandardAdvancedSuperchargerSide.label>
+  <MS_StandardAdvancedSuperchargerSide.description>Medium, heavy, and ultraheavy mechanoids can recharge here at the side of the machine. During recharge, this recharger has an internal waste atomizer so it produces no waste..</MS_StandardAdvancedSuperchargerSide.description>
+
+</LanguageData>

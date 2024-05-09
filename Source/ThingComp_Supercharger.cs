@@ -38,14 +38,14 @@ namespace MechSupercharger
         {
             Command_Action commandAction1 = new Command_Action();
             commandAction1.action = new Action(this.DecreaseOvercharge);
-            commandAction1.defaultLabel = (string)"LowerPower";
-            commandAction1.defaultDesc = (string)"LowerPowerDesc";
+            commandAction1.defaultLabel = (string)"UI_LowerPower".Translate();
+            commandAction1.defaultDesc = (string)"UI_LowerPowerDesc".Translate();
             commandAction1.icon = (Texture)ContentFinder<Texture2D>.Get("UI/Commands/TempLower");
             yield return (Gizmo)commandAction1;
             Command_Action commandAction2 = new Command_Action();
             commandAction2.action = new Action(this.IncreaseOvercharge);
-            commandAction2.defaultLabel = (string)"RaisePower";
-            commandAction2.defaultDesc = (string)"RaisePowerDesc";
+            commandAction2.defaultLabel = (string)"UI_RaisePower".Translate();
+            commandAction2.defaultDesc = (string)"UI_RaisePowerDesc".Translate();
             commandAction2.icon = (Texture)ContentFinder<Texture2D>.Get("UI/Commands/TempRaise");
             yield return (Gizmo)commandAction2;
         }
