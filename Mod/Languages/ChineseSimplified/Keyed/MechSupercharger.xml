@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- Strings visible in the UI -->
+  <!-- EN: Supercharge Level: {0} -->
+  <UI_SuperchargeLevel>快充功率: {0}</UI_SuperchargeLevel>
+  <!-- EN: Lower Power -->
+  <UI_LowerPower>降低功率</UI_LowerPower>
+  <!-- EN: Reduce the Supercharge Level by 1 -->
+  <UI_LowerPowerDesc>减少1级快充功率</UI_LowerPowerDesc>
+  <!-- EN: Raise Power -->
+  <UI_RaisePower>增大功率</UI_RaisePower>
+  <!-- EN: Raise the Supercharge Level by 1 -->
+  <UI_RaisePowerDesc>增加1级快充功率</UI_RaisePowerDesc>
+
+  <!-- Strings visible in the settings menu -->
+  <!-- EN: Mech Supercharger -->
+  <Settings_MechSupercharger>机械快速充电站</Settings_MechSupercharger>
+  <!-- EN: Normal -->
+  <Settings_Normal>普通</Settings_Normal>
+  <!-- EN: Large -->
+  <Settings_Large>大型</Settings_Large>
+  <!-- EN: Normal advanced -->
+  <Settings_NormalAdvanced>高级</Settings_NormalAdvanced>
+  <!-- EN: Large advanced -->
+  <Settings_LargeAdvanced>高级大型</Settings_LargeAdvanced>
+  <!-- EN: {0} supercharger toxic waste factor {1} -->
+  <Settings_ToxicWasteFactor>{0}快速充电站有毒垃圾产生倍率 {1}</Settings_ToxicWasteFactor>
+  <!-- EN: The factor of how much toxic waste the machine uses compared to a vanilla charger -->
+  <Settings_ToxicWasteFactorTooltip>机械充电时产生的有毒垃圾数量，相对于原版充电站的倍数</Settings_ToxicWasteFactorTooltip>
+  <!-- EN: {0} supercharger idle power -->
+  <Settings_IdlePower>{0}快速充电站待机功率</Settings_IdlePower>
+  <!-- EN: {0} supercharger base power draw -->
+  <Settings_BasePower>{0}快速充电站基础耗电</Settings_BasePower>
+
+  <!-- Messages printed to the debug log -->
+  <!-- EN: Could not resolve a charging mech -->
+  <LogWarning_NoMech>Could not resolve a charging mech</LogWarning_NoMech>
+</LanguageData>
