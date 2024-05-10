@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: advanced mech supercharger -->
+  <MS_BasicAdvancedSupercharger.label>高级机械快速充电站</MS_BasicAdvancedSupercharger.label>
+  <!-- EN: Lightweight mechanoids can recharge here. During recharge, this recharger has an internal waste atomizer so it produces no waste. -->
+  <MS_BasicAdvancedSupercharger.description>可供轻型机械体充电的装置。因为其内部拥有一个垃圾分解器，所以在充电期间，不会产出有毒垃圾。</MS_BasicAdvancedSupercharger.description>
+  
+  <!-- EN: advanced mech supercharger side -->
+  <MS_BasicAdvancedSuperchargerSide.label>高级机械快速充电站(侧充型)</MS_BasicAdvancedSuperchargerSide.label>
+  <!-- EN: Lightweight mechanoids can recharge here at the side of the machine. During recharge, this recharger has an internal waste atomizer so it produces no waste. -->
+  <MS_BasicAdvancedSuperchargerSide.description>可供轻型机械体在侧面充电的装置。因为其内部拥有一个垃圾分解器，所以在充电期间，不会产出有毒垃圾。</MS_BasicAdvancedSuperchargerSide.description>
+  
+  <!-- EN: mech supercharger -->
+  <MS_BasicSupercharger.label>机械快速充电站</MS_BasicSupercharger.label>
+  <!-- EN: Lightweight mechanoids can recharge here. During recharge, this recharger produces toxic wastepacks and stores them internally. Haulers must remove the wastepacks from time to time. -->
+  <MS_BasicSupercharger.description>可供轻型机械体充电的装置。在充电期间，其内部会不断产出有毒垃圾。需要派遣搬运工进行定期清理。</MS_BasicSupercharger.description>
+  
+  <!-- EN: mech supercharger side -->
+  <MS_BasicSuperchargerSide.label>机械快速充电站(侧充型)</MS_BasicSuperchargerSide.label>
+  <!-- EN: Lightweight mechanoids can recharge here at the side of the machine. During recharge, this recharger produces toxic wastepacks and stores them internally. Haulers must remove the wastepacks from time to time. -->
+  <MS_BasicSuperchargerSide.description>可供轻型机械体在侧面充电的装置。在充电期间，其内部会不断产出有毒垃圾。需要派遣搬运工进行定期清理。</MS_BasicSuperchargerSide.description>
+  
+  <!-- EN: large advanced mech supercharger -->
+  <MS_StandardAdvancedSupercharger.label>高级大型机械快速充电站</MS_StandardAdvancedSupercharger.label>
+  <!-- EN: Medium, heavy, and ultraheavy mechanoids can recharge here. During recharge, this recharger has an internal waste atomizer so it produces no waste.. -->
+  <MS_StandardAdvancedSupercharger.description>可供中型、重型和超重型机械体充电的装置。因为其内部拥有一个垃圾分解器，所以在充电期间，不会产出有毒垃圾。</MS_StandardAdvancedSupercharger.description>
+  
+  <!-- EN: large advanced mech supercharger side -->
+  <MS_StandardAdvancedSuperchargerSide.label>高级大型机械快速充电站(侧充型)</MS_StandardAdvancedSuperchargerSide.label>
+  <!-- EN: Medium, heavy, and ultraheavy mechanoids can recharge here at the side of the machine. During recharge, this recharger has an internal waste atomizer so it produces no waste.. -->
+  <MS_StandardAdvancedSuperchargerSide.description>可供中型、重型和超重型机械体在侧面充电的装置。因为其内部拥有一个垃圾分解器，所以在充电期间，不会产出有毒垃圾。</MS_StandardAdvancedSuperchargerSide.description>
+  
+  <!-- EN: large mech supercharger -->
+  <MS_StandardSupercharger.label>大型机械快速充电站</MS_StandardSupercharger.label>
+  <!-- EN: Medium, heavy, and ultraheavy mechanoids can recharge here. During recharge, this recharger produces toxic wastepacks and stores them internally. Haulers must remove the wastepacks from time to time. -->
+  <MS_StandardSupercharger.description>可供中型、重型和超重型机械体充电的装置。在充电期间，其内部会不断产出有毒垃圾。需要派遣搬运工进行定期清理。</MS_StandardSupercharger.description>
+  
+  <!-- EN: large mech supercharger side -->
+  <MS_StandardSuperchargerSide.label>大型机械快速充电站(侧充型)</MS_StandardSuperchargerSide.label>
+  <!-- EN: Medium, heavy, and ultraheavy mechanoids can recharge here at the side of the machine. During recharge, this recharger produces toxic wastepacks and stores them internally. Haulers must remove the wastepacks from time to time. -->
+  <MS_StandardSuperchargerSide.description>可供中型、重型和超重型机械体充电的装置。在充电期间，其内部会不断产出有毒垃圾。需要派遣搬运工进行定期清理。</MS_StandardSuperchargerSide.description>
+  
+</LanguageData>
