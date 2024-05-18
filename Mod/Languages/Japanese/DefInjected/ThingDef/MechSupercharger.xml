@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  
+  <!-- EN: advanced mech supercharger -->
+  <MS_BasicAdvancedSupercharger.label>上級メカ急速充電器</MS_BasicAdvancedSupercharger.label>
+  <!-- EN: Lightweight mechanoids can recharge here. During recharge, this recharger has an internal waste atomizer so it produces no waste. -->
+  <MS_BasicAdvancedSupercharger.description>小型メカノイドがここで充電できます.充電器は内部に廃棄物パック分解装置を内蔵しているため,充電中に廃棄物パックを生成しません.</MS_BasicAdvancedSupercharger.description>
+  
+  <!-- EN: advanced mech supercharger side -->
+  <MS_BasicAdvancedSuperchargerSide.label>上級メカ急速充電器（横）</MS_BasicAdvancedSuperchargerSide.label>
+  <!-- EN: Lightweight mechanoids can recharge here at the side of the machine. During recharge, this recharger has an internal waste atomizer so it produces no waste. -->
+  <MS_BasicAdvancedSuperchargerSide.description>小型メカノイドが充電器の横側から充電できます.充電器は内部に廃棄物パック分解装置を内蔵しているため,充電中に廃棄物パックを生成しません.</MS_BasicAdvancedSuperchargerSide.description>
+  
+  <!-- EN: mech supercharger -->
+  <!-- 訳注: 他訳として「メカスーパーチャージャー」も考えたが、バニラの充電器と統一感がないなと思いやめた。 -->
+  <!-- 訳注: スーパーチャージャーだと過給器って意味になっちゃうし。 -->
+  <!-- 訳注: 他訳として「メカスーパー充電器」も考えたが、スーパー充電器ってなんだよと思いやめた。 -->
+  <!-- 訳注: 急速充電器だと本来は「rapid charger」だが、テスラがEV車用の急速充電器を「supercharger」として提供しているみたいだしアリかなって。 -->
+  <MS_BasicSupercharger.label>メカ急速充電器</MS_BasicSupercharger.label>
+  <!-- EN: Lightweight mechanoids can recharge here. During recharge, this recharger produces toxic wastepacks and stores them internally. Haulers must remove the wastepacks from time to time. -->
+  <!-- 訳注: メカ充電器の公式訳と同じ -->
+  <MS_BasicSupercharger.description>小型メカノイドがここで充電できます.充電中,充電器は有毒な廃棄物パックを生成し,内部に貯蔵します.定期的に廃棄物パックの除去が必要です.</MS_BasicSupercharger.description>
+  
+  <!-- EN: mech supercharger side -->
+  <MS_BasicSuperchargerSide.label>メカ急速充電器（横）</MS_BasicSuperchargerSide.label>
+  <!-- EN: Lightweight mechanoids can recharge here at the side of the machine. During recharge, this recharger produces toxic wastepacks and stores them internally. Haulers must remove the wastepacks from time to time. -->
+  <MS_BasicSuperchargerSide.description>小型メカノイドが充電器の横側から充電できます.充電中,充電器は有毒な廃棄物パックを生成し,内部に貯蔵します.定期的に廃棄物パックの除去が必要です.</MS_BasicSuperchargerSide.description>
+  
+  <!-- EN: large advanced mech supercharger -->
+  <MS_StandardAdvancedSupercharger.label>大型上級メカ急速充電器</MS_StandardAdvancedSupercharger.label>
+  <!-- EN: Medium, heavy, and ultraheavy mechanoids can recharge here. During recharge, this recharger has an internal waste atomizer so it produces no waste.. -->
+  <MS_StandardAdvancedSupercharger.description>中型,大型,超大型メカノイドがここで充電できます.充電器は内部に廃棄物パック分解装置を内蔵しているため,充電中に廃棄物パックを生成しません.</MS_StandardAdvancedSupercharger.description>
+  
+  <!-- EN: large advanced mech supercharger side -->
+  <MS_StandardAdvancedSuperchargerSide.label>大型上級メカ急速充電器（横）</MS_StandardAdvancedSuperchargerSide.label>
+  <!-- EN: Medium, heavy, and ultraheavy mechanoids can recharge here at the side of the machine. During recharge, this recharger has an internal waste atomizer so it produces no waste.. -->
+  <MS_StandardAdvancedSuperchargerSide.description>中型,大型,超大型メカノイドが充電器の横側から充電できます.充電器は内部に廃棄物パック分解装置を内蔵しているため,充電中に廃棄物パックを生成しません.</MS_StandardAdvancedSuperchargerSide.description>
+  
+  <!-- EN: large mech supercharger -->
+  <MS_StandardSupercharger.label>大型メカ急速充電器</MS_StandardSupercharger.label>
+  <!-- EN: Medium, heavy, and ultraheavy mechanoids can recharge here. During recharge, this recharger produces toxic wastepacks and stores them internally. Haulers must remove the wastepacks from time to time. -->
+  <!-- 訳注: 大型メカ充電器の公式訳と同じ -->
+  <MS_StandardSupercharger.description>中型,大型,超大型メカノイドがここで充電できます.充電中,充電器は有毒な廃棄物パックを生成し,内部に貯蔵します.定期的に廃棄物パックの除去が必要です.</MS_StandardSupercharger.description>
+  
+  <!-- EN: large mech supercharger side -->
+  <MS_StandardSuperchargerSide.label>大型メカ急速充電器（横）</MS_StandardSuperchargerSide.label>
+  <!-- EN: Medium, heavy, and ultraheavy mechanoids can recharge here at the side of the machine. During recharge, this recharger produces toxic wastepacks and stores them internally. Haulers must remove the wastepacks from time to time. -->
+  <MS_StandardSuperchargerSide.description>中型,大型,超大型メカノイドが充電器の横側から充電できます.充電中,充電器は有毒な廃棄物パックを生成し,内部に貯蔵します.定期的に廃棄物パックの除去が必要です.</MS_StandardSuperchargerSide.description>
+  
+</LanguageData>

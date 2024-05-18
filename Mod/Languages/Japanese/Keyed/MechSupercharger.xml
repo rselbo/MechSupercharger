@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<LanguageData>
+  <!-- Strings visible in the UI -->
+  <!-- EN: Supercharge Level: {0} -->
+  <UI_SuperchargeLevel>急速充電レベル: {0}</UI_SuperchargeLevel>
+  <!-- EN: Lower Power -->
+  <UI_LowerPower>出力を下げる</UI_LowerPower>
+  <!-- EN: Reduce the Supercharge Level by 1 -->
+  <UI_LowerPowerDesc>急速充電レベルを1下げます</UI_LowerPowerDesc>
+  <!-- EN: Raise Power -->
+  <UI_RaisePower>出力を上げる</UI_RaisePower>
+  <!-- EN: Raise the Supercharge Level by 1 -->
+  <UI_RaisePowerDesc>急速充電レベルを1上げます</UI_RaisePowerDesc>
+
+  <!-- Strings visible in the settings menu -->
+  <!-- EN: Mech Supercharger -->
+  <!-- 訳注: Modオプションに表示されるMod名なので翻訳しない -->
+  <Settings_MechSupercharger>Mech Supercharger</Settings_MechSupercharger>
+  <!-- EN: Normal -->
+  <Settings_Normal>メカ</Settings_Normal>
+  <!-- EN: Large -->
+  <Settings_Large>大型メカ</Settings_Large>
+  <!-- EN: Normal advanced -->
+  <Settings_NormalAdvanced>上級メカ</Settings_NormalAdvanced>
+  <!-- EN: Large advanced -->
+  <Settings_LargeAdvanced>大型上級メカ</Settings_LargeAdvanced>
+  <!-- EN: {0} supercharger toxic waste factor {1} -->
+  <Settings_ToxicWasteFactor>{0}急速充充電器が生成する有毒廃棄物の係数: {1}</Settings_ToxicWasteFactor>
+  <!-- EN: The factor of how much toxic waste the machine uses compared to a vanilla charger -->
+  <Settings_ToxicWasteFactorTooltip>バニラの充電器と比較して、どれだけの有毒廃棄物を生成するかという係数</Settings_ToxicWasteFactorTooltip>
+  <!-- EN: {0} supercharger idle power -->
+  <Settings_IdlePower>{0}急速充電器の待機時消費電力</Settings_IdlePower>
+  <!-- EN: {0} supercharger base power draw -->
+  <Settings_BasePower>{0}急速充電器の基準消費電力</Settings_BasePower>
+
+  <!-- Messages printed to the debug log -->
+  <!-- EN: Could not resolve a charging mech -->
+  <!-- 訳注: debug logに表示する部分なので訳しない -->
+  <LogWarning_NoMech>Could not resolve a charging mech</LogWarning_NoMech>
+</LanguageData>
