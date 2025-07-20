@@ -1,20 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ModMetaData>
-	<name>MechSupercharger</name>
-	<author>rselbo</author>
-	<supportedVersions>
-		<li>1.4</li>
-		<li>1.5</li>
-	</supportedVersions>
-	<description>Adds mech supercharges that can charge mechs up to 10 times faster.</description>
-	<packageId>rselbo.mechsupercharger</packageId>
-		<modDependencies>
-		<li>
-			<packageId>brrainz.harmony</packageId>
-			<displayName>Harmony</displayName>
-			<downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
-			<steamWorkshopUrl>https://steamcommunity.com/workshop/filedetails/?id=2009463077</steamWorkshopUrl>
-		</li>
-	</modDependencies>
+  <name>MechSupercharger</name>
+  <author>rselbo</author>
+  <supportedVersions>
+    <li>1.4</li>
+    <li>1.5</li>
+    <li>1.6</li>
+  </supportedVersions>
+  <description>Adds mech supercharges that can charge mechs up to 10 times faster.
+
+Translations:
+ChineseTraditional by TinyGrox
+Japanese by hunya11
+  </description>
+  <packageId>rselbo.mechsupercharger</packageId>
+  <modDependencies>
+    <li>
+      <packageId>brrainz.harmony</packageId>
+      <displayName>Harmony</displayName>
+      <downloadUrl>https://github.com/pardeike/HarmonyRimWorld/releases/latest</downloadUrl>
+      <steamWorkshopUrl>https://steamcommunity.com/workshop/filedetails/?id=2009463077</steamWorkshopUrl>
+    </li>
+  </modDependencies>
 
 </ModMetaData>

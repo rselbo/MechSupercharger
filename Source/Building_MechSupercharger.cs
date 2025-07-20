@@ -31,7 +31,7 @@ namespace MechSupercharger
         private SuperchargerType type;
 
         private FieldInfo currentlyChargingMech;
-        private Pawn CurrentlyChargingMech => (Pawn)currentlyChargingMech.GetValue(this);
+        private new Pawn CurrentlyChargingMech => (Pawn)currentlyChargingMech.GetValue(this);
         private FieldInfo wasteProduced;
         private float WasteProduced
         {
@@ -131,7 +131,7 @@ namespace MechSupercharger
         }
 
 
-        public override void Tick()
+        protected override void Tick()
         {
             base.Tick();
             if (HasMechCharging)

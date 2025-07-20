@@ -64,7 +64,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy /Y $(TargetPath)  $(SolutionDir)MechSupercharger\Mod\1.5\Assemblies\
+    <PostBuildEvent>xcopy /Y $(TargetPath)  $(SolutionDir)MechSupercharger\Mod\1.6\Assemblies\
 xcopy /Y /E $(SolutionDir)MechSupercharger\Mod\ D:\SteamLibrary\steamapps\common\RimWorld\Mods\MechSupercharger</PostBuildEvent>
   </PropertyGroup>
 </Project>
